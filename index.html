@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Doxine - Fashion for Everyone</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Fonts */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(45deg, #6c63ff, #00c3ff, #ff66c4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.6),
+               0 0 20px rgba(255, 102, 196, 0.4);
+}
+
+.logo i {
+  margin-right: 8px;
+  font-size: 26px;
+  color: #6c63ff;
+  transition: transform 0.3s;
+}
+
+.logo:hover i {
+  transform: rotate(10deg) scale(1.2);
+}
+        
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: linear-gradient(45deg, #6c63ff, #00c3ff, #ff66c4);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: transparent;
+  background: linear-gradient(45deg, #6c63ff, #00c3ff, #ff66c4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #6c63ff;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: transparent;
+  background: linear-gradient(45deg, #6c63ff, #00c3ff, #ff66c4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .slide-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .slide-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #6c63ff;
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .btn:hover {
+            background: #5a52d5;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #6c63ff;
+            color: #6c63ff;
+        }
+        
+        .btn-outline:hover {
+            background: #6c63ff;
+            color: white;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .slider-arrow.prev {
+            left: 30px;
+        }
+        
+        .slider-arrow.next {
+            right: 30px;
+        }
+        
+        /* Destination Cards */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #6c63ff;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #777;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #6c63ff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .card-badge.sale {
+            background: #ff4757;
+        }
+        
+        .card-badge.new {
+            background: #2ed573;
+        }
+        
+        .card-badge.popular {
+            background: #ffa502;
+        }
+        
+        .card-content {
+            padding: 20px;
+            background: white;
+        }
+        
+        .card-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .card-content p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            color: #6c63ff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 14px;
+        }
+        
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .rating {
+            color: #ffd700;
+            font-size: 14px;
+        }
+        
+        .add-to-cart {
+            background: #f1f2f6;
+            color: #6c63ff;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background: #6c63ff;
+            color: white;
+        }
+        
+        /* Popular Selections */
+        .popular-selections {
+            background: #f9f9f9;
+        }
+        
+        .selection-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .tab-btn.active {
+            background: #6c63ff;
+            color: white;
+            border-color: #6c63ff;
+        }
+        
+        .tab-btn:hover:not(.active) {
+            border-color: #6c63ff;
+            color: #6c63ff;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Why Us Section */
+        .why-us {
+            background: #f9f9f9;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .feature p {
+            color: #777;
+        }
+        
+        /* Testimonials */
+        .testimonials-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .testimonials-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            min-width: 100%;
+            padding: 0 15px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-card span {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-dot.active {
+            background: #6c63ff;
+            transform: scale(1.2);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: #6c63ff;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            padding: 12px 25px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #222;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #222;
+            color: #aaa;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: #6c63ff;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #6c63ff;
+            transform: translateY(-5px);
+        }
+        
+        .footer-links h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: #6c63ff;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul a {
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links ul a:hover {
+            color: #6c63ff;
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: #6c63ff;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.5s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-slider {
+                height: 70vh;
+            }
+            
+            .slide-content h1 {
+                font-size: 36px;
+            }
+            
+            .slide-content p {
+                font-size: 16px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 50px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 60vh;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .card-img {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-slider {
+                height: 50vh;
+                margin-top: 70px;
+            }
+            
+            .slide-content h1 {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-dove"></i><span> Doxine</span></a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#popular-collections">Collections</a></li>
+                <li><a href="#why-doxine">Why Doxine</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="Login-Signup.html">Login-Signup </a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+            <div class="slide-content">
+                <h1>Discover Your Perfect Style</h1>
+                <p>Explore our latest collection of trendy outfits for every occasion</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1635&q=80');">
+            <div class="slide-content">
+                <h1>Summer Collection 2025</h1>
+                <p>Lightweight fabrics and vibrant colors for the sunny days ahead</p>
+                <a href="#" class="btn">View Collection</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+            <div class="slide-content">
+                <h1>Premium Quality Fabrics</h1>
+                <p>Experience unmatched comfort with our carefully selected materials</p>
+                <a href="#" class="btn">Explore Materials</a>
+            </div>
+        </div>
+        <div class="slider-arrow prev">❮</div>
+        <div class="slider-arrow next">❯</div>
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </div>
+
+    <!-- Destination Cards -->
+    <section class="section" id="popular-collections">
+        <div class="container" >
+            <div class="section-title">
+                <h2>Popular Collections</h2>
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Mumbai Styles">
+                    </div>
+                    <div class="card-content">
+                        <h3>Mumbai Styles</h3>
+                        <p>Trendy urban fashion inspired by the city of dreams</p>
+                        <div class="price">
+                            <span class="current-price">₹500</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★★☆</div>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://plus.unsplash.com/premium_photo-1708274149065-773ce3f2af52?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Delhi Trends">
+                    </div>
+                    <div class="card-content">
+                        <h3>Delhi Trends</h3>
+                        <p>Traditional elegance meets contemporary fashion</p>
+                        <div class="price">
+                            <span class="current-price">₹800</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★★★</div>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Bangalore Fits">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bangalore Fits</h3>
+                        <p>Casual comfort for the tech-savvy urban lifestyle</p>
+                        <div class="price">
+                            <span class="current-price">₹600</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★☆☆</div>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Selections -->
+    <section class="section popular-selections">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trending Now</h2>
+                <p class="section-subtitle">Discover our most popular items loved by customers across India</p>
+            </div>
+            
+            <div class="selection-tabs">
+                <button class="tab-btn active" data-tab="best-sellers">Best Sellers</button>
+                <button class="tab-btn" data-tab="new-arrivals">New Arrivals</button>
+                <button class="tab-btn" data-tab="summer-essentials">Summer Essentials</button>
+                <button class="tab-btn" data-tab="sale">Sale</button>
+            </div>
+            
+            <div class="tab-content active" id="best-sellers">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge popular">Bestseller</span>
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Denim Jacket">
+                        </div>
+                        <div class="card-content">
+                            <h3>Classic Denim Jacket</h3>
+                            <p>Versatile jacket perfect for any casual occasion</p>
+                            <div class="price">
+                                <span class="current-price">₹1,299</span>
+                                <span class="original-price">₹1,799</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★★</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge popular">Bestseller</span>
+                            <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=725&q=80" alt="Printed Dress">
+                        </div>
+                        <div class="card-content">
+                            <h3>Floral Print Dress</h3>
+                            <p>Lightweight summer dress with vibrant floral pattern</p>
+                            <div class="price">
+                                <span class="current-price">₹899</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★☆</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge popular">Bestseller</span>
+                            <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Linen Shirt">
+                        </div>
+                        <div class="card-content">
+                            <h3>Premium Linen Shirt</h3>
+                            <p>Breathable fabric perfect for hot weather</p>
+                            <div class="price">
+                                <span class="current-price">₹1,099</span>
+                                <span class="original-price">₹1,499</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★★</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="new-arrivals">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge new">New</span>
+                            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80" alt="Crochet Top">
+                        </div>
+                        <div class="card-content">
+                            <h3>Crochet Summer Top</h3>
+                            <p>Handmade crochet top with delicate details</p>
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★☆</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge new">New</span>
+                            <img src="https://plus.unsplash.com/premium_photo-1690820317745-770eb6a3ee67?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wide Leg Pants">
+                        </div>
+                        <div class="card-content">
+                            <h3>Wide Leg Linen Pants</h3>
+                            <p>Comfortable and stylish for summer outings</p>
+                            <div class="price">
+                                <span class="current-price">₹1,299</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★★</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge new">New</span>
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Oversized Shirt">
+                        </div>
+                        <div class="card-content">
+                            <h3>Oversized Cotton Shirt</h3>
+                            <p>Relaxed fit shirt perfect for layering</p>
+                            <div class="price">
+                                <span class="current-price">₹999</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★☆☆</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="summer-essentials">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1635&q=80" alt="Summer Dress">
+                        </div>
+                        <div class="card-content">
+                            <h3>Lightweight Maxi Dress</h3>
+                            <p>Flowey dress perfect for beach vacations</p>
+                            <div class="price">
+                                <span class="current-price">₹1,199</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★★</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Straw Hat">
+                        </div>
+                        <div class="card-content">
+                            <h3>Straw Sun Hat</h3>
+                            <p>Essential summer accessory with UV protection</p>
+                            <div class="price">
+                                <span class="current-price">₹599</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★☆</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=725&q=80" alt="Linen Shorts">
+                        </div>
+                        <div class="card-content">
+                            <h3>Linen Shorts</h3>
+                            <p>Comfortable and stylish for hot days</p>
+                            <div class="price">
+                                <span class="current-price">₹799</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★★</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="sale">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge sale">Sale</span>
+                            <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Knit Sweater">
+                        </div>
+                        <div class="card-content">
+                            <h3>Knit Sweater</h3>
+                            <p>Cozy sweater for cool summer evenings</p>
+                            <div class="price">
+                                <span class="current-price">₹999</span>
+                                <span class="original-price">₹1,799</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★☆</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge sale">Sale</span>
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Denim Skirt">
+                        </div>
+                        <div class="card-content">
+                            <h3>Denim A-Line Skirt</h3>
+                            <p>Classic skirt perfect for pairing with any top</p>
+                            <div class="price">
+                                <span class="current-price">₹899</span>
+                                <span class="original-price">₹1,299</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★★</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <span class="card-badge sale">Sale</span>
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Casual Blazer">
+                        </div>
+                        <div class="card-content">
+                            <h3>Casual Cotton Blazer</h3>
+                            <p>Lightweight blazer for smart casual looks</p>
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,499</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="rating">★★★★☆</div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-outline">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-Doxine" 
+    class="section why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Doxine</h2>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👗</div>
+                    <h3>Trendy Styles</h3>
+                    <p>Stay ahead of fashion trends with our constantly updated collections curated by style experts</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your orders delivered within 2-3 business days across all major cities in India</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payments</h3>
+                    <p>100% secure payment gateway with multiple options including UPI, cards, and net banking</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📞</div>
+                    <h3>24/7 Support</h3>
+                    <p>Our customer care team is available round the clock to assist with any queries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-container">
+                    <div class="testimonial">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer">
+                            <p>"I absolutely love my purchases from Doxine! The quality is exceptional and the styles are so trendy. I get compliments every time I wear them."</p>
+                            <h4>Priya Sharma</h4>
+                            <span>Mumbai</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer">
+                            <p>"The delivery was super fast and the clothes fit perfectly. I'm impressed with the attention to detail in every piece. Will definitely shop again!"</p>
+                            <h4>Rahul Verma</h4>
+                            <span>Delhi</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer">
+                            <p>"As someone who struggles to find good fits, Doxine has been a game-changer. Their size guide is accurate and the fabrics are so comfortable."</p>
+                            <h4>Ananya Patel</h4>
+                            <span>Bangalore</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container newsletter-container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates on new collections, exclusive offers, and fashion tips</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Doxine</a>
+                    <p>Bringing you the latest fashion trends at affordable prices. Quality clothing for every occasion and every lifestyle.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/login/"><i>f</i></a>
+                        <a href="https://www.linkedin.com/login"><i>in</i></a>
+                        <a href="https://x.com/i/flow/login"><i>t</i></a>
+                        <a href="https://www.instagram.com/accounts/login/?hl=en"><i>ig</i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Why Doxine</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Collections</h3>
+                    <ul>
+                        <li><a href="#">Mumbai Styles</a></li>
+                        <li><a href="#">Delhi Trends</a></li>
+                        <li><a href="#">Bangalore Fits</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i>✉</i> support@Doxine.com</p>
+                    <p><i>📞</i> +91-7021168196</p>
+                    <p><i>🏠</i> Kalyan East 421306, Mumbai, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Doxine. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Hero Slider
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlider() {
+            clearInterval(slideInterval);
+        }
+
+        // Event Listeners
+        nextBtn.addEventListener('click', function() {
+            nextSlide();
+            stopSlider();
+            startSlider();
+        });
+
+        prevBtn.addEventListener('click', function() {
+            prevSlide();
+            stopSlider();
+            startSlider();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                showSlide(index);
+                stopSlider();
+                startSlider();
+            });
+        });
+
+        // Initialize Slider
+        showSlide(0);
+        startSlider();
+
+        // Testimonial Slider
+        const testimonials = document.querySelector('.testimonials-container');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(n) {
+            testimonials.style.transform = `translateX(-${n * 100}%)`;
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            testimonialDots[n].classList.add('active');
+            currentTestimonial = n;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showTestimonial(index));
+        });
+
+        // Auto-rotate testimonials
+        setInterval(nextTestimonial, 6000);
+        
+        // Popular Selections Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Add to cart functionality
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.card');
+                const title = card.querySelector('h3').textContent;
+                const price = card.querySelector('.current-price').textContent;
+                
+                // In a real app, you would add to cart logic here
+                alert(`Added to cart: ${title} - ${price}`);
+                
+                // Visual feedback
+                this.textContent = '✓';
+                this.style.background = '#2ed573';
+                setTimeout(() => {
+                    this.textContent = '+';
+                    this.style.background = '#f1f2f6';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
