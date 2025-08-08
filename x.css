@@ -1,4 +1,4 @@
- /* Reset and Base Styles */
+/* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -88,6 +88,7 @@
             justify-content: space-between;
             align-items: center;
         }
+    
         
         .logo {
   font-size: 24px;
@@ -309,6 +310,18 @@
         .slider-arrow.next {
             right: 30px;
         }
+            .hero-video {
+    margin-top: 40px;
+    padding: 20px;
+    position: relative;
+    width: 50%;
+    background-color: #f5f5f5;
+    }
+    .hero-video video,
+    .hero-video iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
         
         /* Destination Cards */
         .section {
@@ -784,8 +797,99 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
+        /* Hero Section */
+        .hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 0 40px 0;
+  background: linear-gradient(90deg, #f8fafc 60%, #e0e7ff 100%);
+  border-radius: 24px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 32px rgba(60, 60, 120, 0.08);
+}
+
+.hero-message {
+  flex: 1;
+  padding: 32px 24px;
+  animation: fadeInLeft 1.2s cubic-bezier(.77,0,.18,1) both;
+}
+
+.animated-text {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  animation: colorPulse 2s infinite alternate;
+}
+
+.animated-subtext {
+  font-size: 1.2rem;
+  color: #374151;
+  margin-bottom: 28px;
+  line-height: 1.6;
+  animation: fadeIn 2s 0.5s both;
+}
+
+.highlight {
+  color: #f59e42;
+  font-weight: 600;
+  background: linear-gradient(90deg, #f59e42 30%, #fbbf24 100%);
+  padding: 2px 8px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: linear-gradient(90deg, #6366f1 60%, #f59e42 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.12);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  animation: bounceIn 1.2s 0.8s both;
+}
+
+.hero-btn:hover {
+  background: linear-gradient(90deg, #f59e42 60%, #6366f1 100%);
+  color: #fff;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(245,158,66,0.18);
+}
+
+.hero-video {
+  flex: 1;
+  min-width: 320px;
+  max-width: 520px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(99,102,241,0.13);
+  animation: fadeInRight 1.2s cubic-bezier(.77,0,.18,1) both;
+}
+
+.hero-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  transition: box-shadow 0.3s;
+}
+
+.hero-video video:hover {
+  box-shadow: 0 12px 36px rgba(99,102,241,0.22);
+}
+
+/* Animations */
+@keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -795,8 +899,29 @@
                 transform: translateY(0);
             }
         }
-        
-        /* Responsive Styles */
+        @keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-60px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(60px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+@keyframes colorPulse {
+  0% { color: #4f46e5;}
+  100% { color: #f59e42;}
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.8);}
+  60% { transform: scale(1.08);}
+  100% { transform: scale(1);}
+}
+
+/* Responsive Styles */
         @media (max-width: 992px) {
             .nav-links {
                 position: fixed;
@@ -888,3 +1013,14 @@
                 font-size: 26px;
             }
         }
+        @media (max-width: 900px) {
+  .hero-flex {
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding: 32px 0 24px 0;
+  }
+  .hero-message, .hero-video {
+    max-width: 100%;
+    padding: 0;
+  }
+}
