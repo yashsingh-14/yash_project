@@ -1,0 +1,15 @@
+<nav class="navbar" th:fragment="navbar" xmlns:th="http://www.thymeleaf.org">
+    <div class="container navbar-container">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-dove"></i><span> Doxine</span></a>
+        <ul class="nav-links">
+            <li><a th:href="@{/}" class="active">Home</a></li>
+            <li><a href="#popular-collections">Collections</a></li>
+            <li><a href="#why-Doxine">Why Doxine</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/wishlist}">Wishlist</a></li>
+            <li><a th:href="@{/login}">Login-Signup </a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+    </div>
+</nav>

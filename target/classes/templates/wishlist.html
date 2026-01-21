@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - Yash Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="wishlist-container">
+        <div class="wishlist-header">
+            <h1>My Wishlist</h1>
+            <p>Your saved favorite items</p>
+        </div>
+
+        <div class="wishlist-grid" th:if="${not #lists.isEmpty(wishlistItems)}">
+            <div class="wishlist-item" th:each="product : ${wishlistItems}">
+                <div class="wishlist-img-container">
+                    <a th:href="@{'/product/' + ${product.id}}">
+                        <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                    </a>
+                </div>
+                <div class="wishlist-details">
+                    <a th:href="@{'/product/' + ${product.id}}" style="text-decoration: none;">
+                        <h3 class="wishlist-title" th:text="${product.name}">Product Name</h3>
+                    </a>
+                    <div class="wishlist-price" th:text="${product.price}">$99.99</div>
+                    <div class="wishlist-actions">
+                        <a th:href="@{'/cart/add/' + ${product.id}}" class="btn-move-cart">
+                            <i class="fas fa-shopping-cart"></i> Move to Cart
+                        </a>
+                        <a th:href="@{'/wishlist/remove/' + ${product.id}}" class="btn-remove-wish">
+                            <i class="fas fa-trash"></i> Remove
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="empty-wishlist" th:if="${#lists.isEmpty(wishlistItems)}">
+            <i class="far fa-heart"></i>
+            <h2>Your wishlist is empty</h2>
+            <p>Browse our collections and save your favorite items here.</p>
+            <a th:href="@{/}" class="btn-move-cart" style="display: inline-block; margin-top: 20px;">Start Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

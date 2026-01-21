@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base}">
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <!-- Hero Slider -->
+        <div th:replace="~{fragments/home/hero :: hero}"></div>
+
+        <!-- Destination Cards -->
+        <div th:replace="~{fragments/home/collections :: collections}"></div>
+
+        <!-- Popular Selections -->
+        <div th:replace="~{fragments/home/trending :: trending}"></div>
+
+        <!-- Why Us Section -->
+        <div th:replace="~{fragments/home/why-us :: why-us}"></div>
+
+        <!-- Testimonials -->
+        <div th:replace="~{fragments/home/testimonials :: testimonials}"></div>
+
+        <!-- Newsletter -->
+        <div th:replace="~{fragments/home/newsletter :: newsletter}"></div>
+
+    </div>
+</body>
+
+</html>

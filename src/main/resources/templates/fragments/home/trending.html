@@ -1,0 +1,120 @@
+<section class="section popular-selections" th:fragment="trending" xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <div class="section-title">
+            <h2>Trending Now</h2>
+            <p class="section-subtitle">Discover our most popular items loved by customers across India</p>
+        </div>
+
+        <div class="selection-tabs">
+            <button class="tab-btn active" data-tab="best-sellers">Best Sellers</button>
+            <button class="tab-btn" data-tab="new-arrivals">New Arrivals</button>
+            <button class="tab-btn" data-tab="summer-essentials">Summer Essentials</button>
+            <button class="tab-btn" data-tab="sale">Sale</button>
+        </div>
+
+        <div class="tab-content active" id="best-sellers">
+            <div class="cards-container">
+                <div class="card" th:each="product : ${bestSellers}">
+                    <div class="card-img">
+                        <a th:href="@{'/product/' + ${product.id}}">
+                            <span class="card-badge popular" th:if="${product.badge == 'popular'}">Bestseller</span>
+                            <span class="card-badge new" th:if="${product.badge == 'new'}">New</span>
+                            <span class="card-badge sale" th:if="${product.badge == 'sale'}">Sale</span>
+                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 th:text="${product.name}">Product Name</h3>
+                        <p th:text="${product.description}">Description</p>
+                        <div class="price">
+                            <span class="current-price" th:text="${product.price}">₹1,299</span>
+                            <span class="original-price" th:if="${product.originalPrice != null}"
+                                th:text="${product.originalPrice}">₹1,799</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★★★</div>
+                            <a th:href="@{'/product/' + ${product.id}}"> <button class="add-to-cart"> +</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="new-arrivals">
+            <div class="cards-container">
+                <div class="card" th:each="product : ${newArrivals}">
+                    <div class="card-img">
+                        <a th:href="@{'/product/' + ${product.id}}">
+                            <span class="card-badge new" th:if="${product.badge == 'new'}">New</span>
+                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 th:text="${product.name}">Product Name</h3>
+                        <p th:text="${product.description}">Description</p>
+                        <div class="price">
+                            <span class="current-price" th:text="${product.price}">₹1,499</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★★★</div>
+                            <a th:href="@{'/product/' + ${product.id}}"> <button class="add-to-cart"> +</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="summer-essentials">
+            <div class="cards-container">
+                <div class="card" th:each="product : ${summerEssentials}">
+                    <div class="card-img">
+                        <a th:href="@{'/product/' + ${product.id}}">
+                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 th:text="${product.name}">Product Name</h3>
+                        <p th:text="${product.description}">Description</p>
+                        <div class="price">
+                            <span class="current-price" th:text="${product.price}">₹1,199</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★★★</div>
+                            <a th:href="@{'/product/' + ${product.id}}"> <button class="add-to-cart"> +</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="sale">
+            <div class="cards-container">
+                <div class="card" th:each="product : ${saleItems}">
+                    <div class="card-img">
+                        <a th:href="@{'/product/' + ${product.id}}">
+                            <span class="card-badge sale" th:if="${product.badge == 'sale'}">Sale</span>
+                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 th:text="${product.name}">Product Name</h3>
+                        <p th:text="${product.description}">Description</p>
+                        <div class="price">
+                            <span class="current-price" th:text="${product.price}">₹999</span>
+                            <span class="original-price" th:if="${product.originalPrice != null}"
+                                th:text="${product.originalPrice}">₹1,799</span>
+                        </div>
+                        <div class="card-actions">
+                            <div class="rating">★★★★★</div>
+                            <a th:href="@{'/product/' + ${product.id}}"> <button class="add-to-cart"> +</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="btn btn-outline">View All Products</a>
+        </div>
+    </div>
+</section>

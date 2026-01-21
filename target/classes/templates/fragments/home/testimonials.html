@@ -1,0 +1,43 @@
+<section class="section" th:fragment="testimonials" xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-card">
+                        <img th:src="@{/images/ui/testi1.jpg}" alt="Customer">
+                        <p>"I absolutely love my purchases from Doxine! The quality is exceptional and the styles are so
+                            trendy. I get compliments every time I wear them."</p>
+                        <h4>Priya Sharma</h4>
+                        <span>Mumbai</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-card">
+                        <img th:src="@{/images/ui/test2.jpg}" alt="Customer">
+                        <p>"The delivery was super fast and the clothes fit perfectly. I'm impressed with the attention
+                            to detail in every piece. Will definitely shop again!"</p>
+                        <h4>Rahul Verma</h4>
+                        <span>Delhi</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-card">
+                        <img th:src="@{/images/ui/test3.jpg}" alt="Customer">
+                        <p>"As someone who struggles to find good fits, Doxine has been a game-changer. Their size guide
+                            is accurate and the fabrics are so comfortable."</p>
+                        <h4>Ananya Patel</h4>
+                        <span>Bangalore</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active"></div>
+                <div class="testimonial-dot"></div>
+                <div class="testimonial-dot"></div>
+            </div>
+        </div>
+    </div>
+</section>

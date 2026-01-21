@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base}">
+
+<head>
+    <title th:text="${product.name} + ' - Doxine'">Product Detail</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container product-detail-container">
+            <div class="product-wrapper">
+                <div class="product-image">
+                    <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Doxine Collection</span>
+                    <h1 class="product-title" th:text="${product.name}">Product Name</h1>
+                    <div class="product-rating">
+                        <span th:each="i : ${#numbers.sequence(1, 5)}">
+                            <i class="fas fa-star"
+                                th:style="${i <= product.rating ? 'color: #ffd700' : 'color: #ddd'}"></i>
+                        </span>
+                        <span style="color: #999; font-size: 14px; margin-left: 10px;">(120 reviews)</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price" th:text="${product.price}">₹999</span>
+                        <span class="original-price" th:if="${product.originalPrice != null}"
+                            th:text="${product.originalPrice}">₹1499</span>
+                    </div>
+                    <p class="product-desc" th:text="${product.description}">
+                        This is a premium quality product designed for comfort and style. Made with the finest materials
+                        to ensure durability and elegance.
+                    </p>
+                    <div class="action-buttons">
+                        <a th:href="@{'/cart/add/' + ${product.id}}" style="flex: 2; display: contents;">
+                            <button class="buy-now-btn"><i class="fas fa-shopping-bag"></i> Buy Now</button>
+                        </a>
+                        <a th:href="@{'/wishlist/add/' + ${product.id}}" style="flex: 1; display: contents;">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i> Add to Wishlist</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products Section (Reusing existing cards style) -->
+            <div class="related-products">
+                <div class="section-title">
+                    <h2>Related Products</h2>
+                </div>
+                <div class="cards-container">
+                    <div class="card" th:each="relProduct : ${relatedProducts}" th:if="${relProduct.id != product.id}">
+                        <div class="card-img">
+                            <a th:href="@{'/product/' + ${relProduct.id}}">
+                                <img th:src="@{${relProduct.imageUrl}}" th:alt="${relProduct.name}">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h3 th:text="${relProduct.name}">Product Name</h3>
+                            <p th:text="${relProduct.description}">Description</p>
+                            <div class="price">
+                                <span class="current-price" th:text="${relProduct.price}">₹500</span>
+                            </div>
+                            <div class="card-actions">
+                                <a th:href="@{'/product/' + ${relProduct.id}}"><button class="add-to-cart">
+                                        View</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

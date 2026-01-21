@@ -1,0 +1,32 @@
+<section class="section" id="popular-collections" th:fragment="collections" xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <div class="section-title">
+            <h2>Popular Collections</h2>
+        </div>
+        <div class="cards-container">
+            <div class="card" th:each="product : ${popularCollections}">
+                <div class="card-img">
+                    <a th:href="@{'/product/' + ${product.id}}">
+                        <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                    </a>
+                </div>
+                <div class="card-content">
+                    <h3 th:text="${product.name}">Product Name</h3>
+                    <p th:text="${product.description}">Product Description</p>
+                    <div class="price">
+                        <span class="current-price" th:text="${product.price}">₹500</span>
+                    </div>
+                    <div class="card-actions">
+                        <div class="rating">
+                            <span th:each="i : ${#numbers.sequence(1, 5)}">
+                                <i class="fas fa-star"
+                                    th:style="${i <= product.rating ? 'color: #ffd700' : 'color: #ddd'}"></i>
+                            </span>
+                        </div>
+                        <a th:href="@{'/product/' + ${product.id}}"><button class="add-to-cart"> +</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
