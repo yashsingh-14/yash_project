@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base}">
+
+<head>
+    <title>Admin - Manage Products</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container" style="padding-top: 120px; padding-bottom: 60px;">
+            <div class="section-title">
+                <h2>Product Management</h2>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+                <a th:href="@{/admin/products/add}" class="btn-primary">
+                    <i class="fas fa-plus"></i> Add New Product
+                </a>
+            </div>
+
+            <div class="admin-glass-card" style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; color: white;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <th style="padding: 15px; text-align: left;">Image</th>
+                            <th style="padding: 15px; text-align: left;">Name</th>
+                            <th style="padding: 15px; text-align: left;">Price</th>
+                            <th style="padding: 15px; text-align: left;">Category</th>
+                            <th style="padding: 15px; text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product : ${products}" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">
+                                <img th:src="@{${product.imageUrl}}" alt="img"
+                                    style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                            </td>
+                            <td style="padding: 10px;" th:text="${product.name}">Product Name</td>
+                            <td style="padding: 10px;" th:text="${product.price}">Price</td>
+                            <td style="padding: 10px;">
+                                <span th:text="${product.category}"
+                                    style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Category</span>
+                            </td>
+                            <td style="padding: 10px; text-align: center;">
+                                <a th:href="@{'/admin/products/edit/' + ${product.id}}"
+                                    style="color: #64ffda; margin-right: 10px;">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a th:href="@{'/admin/products/delete/' + ${product.id}}" style="color: #ff6b6b;"
+                                    onclick="return confirm('Are you sure you want to delete this product?');">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

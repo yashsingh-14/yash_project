@@ -1,9 +1,18 @@
 package com.yash.store;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+
+@Entity
 public class Product {
+    @Id
     private String id;
     private String name;
+
+    @Column(length = 1000)
     private String description;
+
     private String price;
     private String originalPrice;
     private String imageUrl;
@@ -11,6 +20,10 @@ public class Product {
                              // "summer-essentials"
     private double rating;
     private String badge; // "sale", "new", "popular", null
+
+    public Product() {
+        // Default constructor required by JPA
+    }
 
     public Product(String id, String name, String description, String price, String originalPrice, String imageUrl,
             String category, double rating, String badge) {

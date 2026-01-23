@@ -1670,3 +1670,300 @@ body {
         justify-content: center;
     }
 }
+
+/* =========================================
+   7. ADMIN DASHBOARD STYLES
+   ========================================= */
+
+/* =========================================
+   8. PREMIUM LOGIN / SIGNUP
+   ========================================= */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Outfit', sans-serif;
+    height: 100vh;
+    background: var(--dark-bg);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Elements */
+.login-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--primary-color);
+    top: -10%;
+    left: -10%;
+    opacity: 0.4;
+}
+
+.circle-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-color);
+    bottom: -10%;
+    right: -10%;
+    opacity: 0.3;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 850px;
+    max-width: 95%;
+    min-height: 550px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.login-container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    /* Prevent interaction when hidden */
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.login-container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.login-form {
+    background-color: transparent;
+    /* Transparent to show glass */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.login-form h1 {
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: white;
+}
+
+.login-social-container {
+    margin: 20px 0;
+}
+
+.login-social-container a {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    height: 45px;
+    width: 45px;
+    color: white;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.login-social-container a:hover {
+    background: white;
+    color: var(--dark-bg);
+    transform: translateY(-3px);
+}
+
+.login-span {
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.login-input {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-input:focus {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.login-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.login-btn {
+    border-radius: 50px;
+    border: none;
+    background: var(--gradient-1);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 15px 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.5);
+}
+
+.login-btn:active {
+    transform: scale(0.95);
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 100;
+}
+
+.login-container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: var(--gradient-1);
+    /* Replaces the pink/blue gradient */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.login-container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.login-container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.login-container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.overlay h1 {
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.overlay p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 20px 0 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+    border: 2px solid white;
+}
+
+.ghost:hover {
+    background: white;
+    color: var(--primary-color);
+}

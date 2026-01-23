@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base}">
+
+<head>
+    <title>Admin - Edit Product</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container" style="padding-top: 120px; padding-bottom: 60px;">
+            <div class="section-title">
+                <h2 th:text="${product.id == null ? 'Add New Product' : 'Edit Product'}">Product Form</h2>
+            </div>
+
+            <div class="admin-glass-card" style="max-width: 600px; margin: 0 auto; padding: 40px;">
+                <form th:action="@{/admin/products/save}" th:object="${product}" method="post">
+                    <input type="hidden" th:field="*{id}" />
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 10px; color: var(--text-secondary);">Product
+                            Name</label>
+                        <input type="text" th:field="*{name}" class="glass-input" required
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label
+                            style="display: block; margin-bottom: 10px; color: var(--text-secondary);">Description</label>
+                        <textarea th:field="*{description}" class="glass-input" rows="4"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white;"></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 10px; color: var(--text-secondary);">Price (e.g.,
+                            ₹999)</label>
+                        <input type="text" th:field="*{price}" class="glass-input" required
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 10px; color: var(--text-secondary);">Original Price
+                            (Optional)</label>
+                        <input type="text" th:field="*{originalPrice}" class="glass-input"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 10px; color: var(--text-secondary);">Image URL
+                            (e.g., /images/p1.jpg)</label>
+                        <input type="text" th:field="*{imageUrl}" class="glass-input" required
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label
+                            style="display: block; margin-bottom: 10px; color: var(--text-secondary);">Category</label>
+                        <select th:field="*{category}" class="glass-input"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: #0f172a; color: white;">
+                            <option value="popular-collection">Popular Collection</option>
+                            <option value="best-sellers">Best Sellers</option>
+                            <option value="new-arrivals">New Arrivals</option>
+                            <option value="summer-essentials">Summer Essentials</option>
+                            <option value="sale">Sale</option>
+                        </select>
+                    </div>
+
+                    <div class="form-buttons" style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button type="submit" class="btn-primary" style="flex: 1;">Save Product</button>
+                        <a th:href="@{/admin/products}" class="btn-glass"
+                            style="flex: 1; text-align: center;">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
