@@ -1,5 +1,9 @@
-package com.yash.store;
+package com.yash.store.controller;
 
+import com.yash.store.model.Product;
+import com.yash.store.service.ProductService;
+import com.yash.store.service.CartService;
+import com.yash.store.service.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,5 +1,6 @@
-package com.yash.store;
+package com.yash.store.repository;
 
+import com.yash.store.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

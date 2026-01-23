@@ -1,4 +1,4 @@
-package com.yash.store;
+package com.yash.store.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

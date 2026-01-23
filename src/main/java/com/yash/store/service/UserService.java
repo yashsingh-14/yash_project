@@ -1,5 +1,7 @@
-package com.yash.store;
+package com.yash.store.service;
 
+import com.yash.store.model.User;
+import com.yash.store.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

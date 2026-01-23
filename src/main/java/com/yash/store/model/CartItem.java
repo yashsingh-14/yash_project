@@ -1,4 +1,4 @@
-package com.yash.store;
+package com.yash.store.model;
 
 public class CartItem {
     private Product product;

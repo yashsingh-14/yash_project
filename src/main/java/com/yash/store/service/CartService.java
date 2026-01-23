@@ -1,5 +1,7 @@
-package com.yash.store;
+package com.yash.store.service;
 
+import com.yash.store.model.CartItem;
+import com.yash.store.model.Product;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
