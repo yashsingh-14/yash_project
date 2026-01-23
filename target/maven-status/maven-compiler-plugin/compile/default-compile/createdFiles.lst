@@ -1,2 +1,8 @@
+com\yash\store\CartService.class
+com\yash\store\Product.class
+com\yash\store\CartItem.class
+com\yash\store\ProductController.class
+com\yash\store\ProductService.class
 com\yash\store\HomeController.class
 com\yash\store\SpringApp.class
+com\yash\store\WishlistService.class
