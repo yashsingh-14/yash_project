@@ -1,0 +1,234 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.yash:store >---------------------------
+[INFO] Building store 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ store ---
+[INFO] Deleting C:\Users\yash1\OneDrive\Documents\GitHub\yash_project\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ store ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 41 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ store ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 14 source files with javac [debug release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/ProductController.java:[22,95] cannot find symbol
+  symbol:   method getCategory()
+  location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[21,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[25,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[30,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[37,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[42,41] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[46,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[52,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[56,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[60,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[66,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[70,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[73,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[78,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[82,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[87,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[16,34] cannot find symbol
+  symbol:   method getId()
+  location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[16,57] cannot find symbol
+  symbol:   method getId()
+  location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[26,34] cannot find symbol
+  symbol:   method getId()
+  location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[36,34] cannot find symbol
+  symbol:   method getId()
+  location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[51,53] cannot find symbol
+  symbol:   method getId()
+  location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[61,48] cannot find symbol
+  symbol:   method getPrice()
+  location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/WishlistService.java:[15,21] cannot find symbol
+  symbol:   method getId()
+  location: variable item of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/WishlistService.java:[15,44] cannot find symbol
+  symbol:   method getId()
+  location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/WishlistService.java:[23,44] cannot find symbol
+  symbol:   method getId()
+  location: variable item of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/AdminController.java:[37,20] cannot find symbol
+  symbol:   method getId()
+  location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/AdminController.java:[37,47] cannot find symbol
+  symbol:   method getId()
+  location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/AdminController.java:[38,20] cannot find symbol
+  symbol:   method setId(java.lang.String)
+  location: variable product of type com.yash.store.model.Product
+[INFO] 28 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.757 s
+[INFO] Finished at: 2026-01-29T16:06:12+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project store: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/ProductController.java:[22,95] cannot find symbol
+[ERROR]   symbol:   method getCategory()
+[ERROR]   location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[21,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[25,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[30,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[37,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[42,41] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[46,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[52,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[56,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[60,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[66,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[70,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[73,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,<nulltype>,java.lang.String,java.lang.String,double,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[78,48] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[82,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/ProductService.java:[87,47] constructor Product in class com.yash.store.model.Product cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[16,34] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[16,57] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[26,34] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[36,34] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[51,53] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/CartService.java:[61,48] cannot find symbol
+[ERROR]   symbol:   method getPrice()
+[ERROR]   location: class com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/WishlistService.java:[15,21] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable item of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/WishlistService.java:[15,44] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/service/WishlistService.java:[23,44] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable item of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/AdminController.java:[37,20] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/AdminController.java:[37,47] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable product of type com.yash.store.model.Product
+[ERROR] /C:/Users/yash1/OneDrive/Documents/GitHub/yash_project/src/main/java/com/yash/store/controller/AdminController.java:[38,20] cannot find symbol
+[ERROR]   symbol:   method setId(java.lang.String)
+[ERROR]   location: variable product of type com.yash.store.model.Product
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
