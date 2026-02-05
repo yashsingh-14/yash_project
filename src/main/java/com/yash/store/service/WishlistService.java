@@ -19,7 +19,7 @@ public class WishlistService {
         wishlistItems.add(product);
     }
 
-    public void removeFromWishlist(String productId) {
+    public void removeFromWishlist(Long productId) {
         wishlistItems.removeIf(item -> item.getId().equals(productId));
     }
 

@@ -1,0 +1,17 @@
+com\yash\store\controller\AuthController.class
+com\yash\store\service\WishlistService.class
+com\yash\store\model\Product.class
+com\yash\store\controller\AdminController.class
+com\yash\store\service\UserService.class
+com\yash\store\model\CartItem.class
+com\yash\store\controller\CoreController.class
+com\yash\store\service\CartService.class
+com\yash\store\model\enums\Category.class
+com\yash\store\model\User.class
+com\yash\store\controller\WishlistController.class
+com\yash\store\repository\UserRepository.class
+com\yash\store\controller\CartController.class
+com\yash\store\model\Product$ProductBuilder.class
+com\yash\store\config\DataSeeder.class
+com\yash\store\repository\ProductRepository.class
+com\yash\store\SpringApp.class

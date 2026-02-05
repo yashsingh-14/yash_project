@@ -20,16 +20,17 @@
                             <span class="card-badge popular" th:if="${product.badge == 'popular'}">Bestseller</span>
                             <span class="card-badge new" th:if="${product.badge == 'new'}">New</span>
                             <span class="card-badge sale" th:if="${product.badge == 'sale'}">Sale</span>
-                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                            <img th:src="@{${product.image != null ? '/product/image/' + product.id : product.imageUrl}}"
+                                th:alt="${product.name}">
                         </a>
                     </div>
                     <div class="card-content">
                         <h3 th:text="${product.name}">Product Name</h3>
                         <p th:text="${product.description}">Description</p>
                         <div class="price">
-                            <span class="current-price" th:text="${product.price}">₹1,299</span>
+                            <span class="current-price" th:text="'₹' + ${product.price}">₹1,299</span>
                             <span class="original-price" th:if="${product.originalPrice != null}"
-                                th:text="${product.originalPrice}">₹1,799</span>
+                                th:text="'₹' + ${product.originalPrice}">₹1,799</span>
                         </div>
                         <div class="card-actions">
                             <div class="rating">★★★★★</div>
@@ -46,14 +47,15 @@
                     <div class="card-img">
                         <a th:href="@{'/product/' + ${product.id}}">
                             <span class="card-badge new" th:if="${product.badge == 'new'}">New</span>
-                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                            <img th:src="@{${product.image != null ? '/product/image/' + product.id : product.imageUrl}}"
+                                th:alt="${product.name}">
                         </a>
                     </div>
                     <div class="card-content">
                         <h3 th:text="${product.name}">Product Name</h3>
                         <p th:text="${product.description}">Description</p>
                         <div class="price">
-                            <span class="current-price" th:text="${product.price}">₹1,499</span>
+                            <span class="current-price" th:text="'₹' + ${product.price}">₹1,499</span>
                         </div>
                         <div class="card-actions">
                             <div class="rating">★★★★★</div>
@@ -69,14 +71,15 @@
                 <div class="card" th:each="product : ${summerEssentials}">
                     <div class="card-img">
                         <a th:href="@{'/product/' + ${product.id}}">
-                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                            <img th:src="@{${product.image != null ? '/product/image/' + product.id : product.imageUrl}}"
+                                th:alt="${product.name}">
                         </a>
                     </div>
                     <div class="card-content">
                         <h3 th:text="${product.name}">Product Name</h3>
                         <p th:text="${product.description}">Description</p>
                         <div class="price">
-                            <span class="current-price" th:text="${product.price}">₹1,199</span>
+                            <span class="current-price" th:text="'₹' + ${product.price}">₹1,199</span>
                         </div>
                         <div class="card-actions">
                             <div class="rating">★★★★★</div>
@@ -93,16 +96,17 @@
                     <div class="card-img">
                         <a th:href="@{'/product/' + ${product.id}}">
                             <span class="card-badge sale" th:if="${product.badge == 'sale'}">Sale</span>
-                            <img th:src="@{${product.imageUrl}}" th:alt="${product.name}">
+                            <img th:src="@{${product.image != null ? '/product/image/' + product.id : product.imageUrl}}"
+                                th:alt="${product.name}">
                         </a>
                     </div>
                     <div class="card-content">
                         <h3 th:text="${product.name}">Product Name</h3>
                         <p th:text="${product.description}">Description</p>
                         <div class="price">
-                            <span class="current-price" th:text="${product.price}">₹999</span>
+                            <span class="current-price" th:text="'₹' + ${product.price}">₹1,299</span>
                             <span class="original-price" th:if="${product.originalPrice != null}"
-                                th:text="${product.originalPrice}">₹1,799</span>
+                                th:text="'₹' + ${product.originalPrice}">₹1,799</span>
                         </div>
                         <div class="card-actions">
                             <div class="rating">★★★★★</div>

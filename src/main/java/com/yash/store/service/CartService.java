@@ -21,7 +21,7 @@ public class CartService {
         cartItems.add(new CartItem(product, 1));
     }
 
-    public void increaseQuantity(String productId) {
+    public void increaseQuantity(Long productId) {
         for (CartItem item : cartItems) {
             if (item.getProduct().getId().equals(productId)) {
                 item.setQuantity(item.getQuantity() + 1);
@@ -30,7 +30,7 @@ public class CartService {
         }
     }
 
-    public void decreaseQuantity(String productId) {
+    public void decreaseQuantity(Long productId) {
         CartItem itemToRemove = null;
         for (CartItem item : cartItems) {
             if (item.getProduct().getId().equals(productId)) {
@@ -47,7 +47,7 @@ public class CartService {
         }
     }
 
-    public void removeFromCart(String productId) {
+    public void removeFromCart(Long productId) {
         cartItems.removeIf(item -> item.getProduct().getId().equals(productId));
     }
 
@@ -58,12 +58,8 @@ public class CartService {
     public double getTotalPrice() {
         double total = 0;
         for (CartItem item : cartItems) {
-            String priceStr = item.getProduct().getPrice().replace("₹", "").replace(",", "");
-            try {
-                double price = Double.parseDouble(priceStr);
-                total += price * item.getQuantity();
-            } catch (NumberFormatException e) {
-                // Handle or ignore
+            if (item.getProduct().getPrice() != null) {
+                total += item.getProduct().getPrice() * item.getQuantity();
             }
         }
         return total;
