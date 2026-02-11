@@ -1,22 +1,40 @@
 package com.yash.store.config;
 
 import com.yash.store.model.Product;
+import com.yash.store.model.User;
 import com.yash.store.model.enums.Category;
 import com.yash.store.repository.ProductRepository;
+import com.yash.store.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataSeeder implements CommandLineRunner {
 
         private final ProductRepository productRepository;
+        private final UserRepository userRepository;
+        private final PasswordEncoder passwordEncoder;
 
-        public DataSeeder(ProductRepository productRepository) {
+        public DataSeeder(ProductRepository productRepository, UserRepository userRepository,
+                        PasswordEncoder passwordEncoder) {
                 this.productRepository = productRepository;
+                this.userRepository = userRepository;
+                this.passwordEncoder = passwordEncoder;
         }
 
         @Override
         public void run(String... args) throws Exception {
+                // Create admin user if not exists
+                if (userRepository.findByEmail("admin@store.com").isEmpty()) {
+                        User admin = new User();
+                        admin.setFullName("Admin");
+                        admin.setEmail("admin@store.com");
+                        admin.setPassword(passwordEncoder.encode("admin123"));
+                        admin.setRole("ADMIN");
+                        userRepository.save(admin);
+                }
+
                 if (productRepository.count() == 0) {
                         // Popular Collection
                         productRepository.save(Product.builder()

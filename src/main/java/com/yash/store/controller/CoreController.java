@@ -1,7 +1,6 @@
 package com.yash.store.controller;
 
 import com.yash.store.model.Product;
-import com.yash.store.model.enums.Category;
 import com.yash.store.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,12 +19,13 @@ public class CoreController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("popularCollections", productRepository.findByCategory(Category.POPULAR_COLLECTION));
-        model.addAttribute("bestSellers", productRepository.findByCategory(Category.BEST_SELLERS));
-        model.addAttribute("newArrivals", productRepository.findByCategory(Category.NEW_ARRIVALS));
-        model.addAttribute("summerEssentials", productRepository.findByCategory(Category.SUMMER_ESSENTIALS));
-        model.addAttribute("saleItems", productRepository.findByCategory(Category.SALE));
+        model.addAttribute("products", productRepository.findAll());
         return "index";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
     }
 
     @GetMapping("/contact")

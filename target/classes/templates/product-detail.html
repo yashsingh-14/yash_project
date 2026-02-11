@@ -1,49 +1,97 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{base}">
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security" layout:decorate="~{base}">
 
 <head>
     <title th:text="${product.name} + ' - Doxine'">Product Detail</title>
 </head>
 
 <body>
-    <div layout:fragment="content">
-        <div class="container product-detail-container">
-            <div class="product-wrapper">
-                <div class="product-image">
-                    <img th:src="@{${product.image != null ? '/product/image/' + product.id : product.imageUrl}}"
-                        th:alt="${product.name}">
-                </div>
-                <!-- ... -->
-                <div class="product-price">
-                    <span class="current-price" th:text="'₹' + ${product.price}">₹999</span>
-                    <span class="original-price" th:if="${product.originalPrice != null}"
-                        th:text="'₹' + ${product.originalPrice}">₹1499</span>
-                </div>
-                <!-- ... -->
-                <div class="card" th:each="relProduct : ${relatedProducts}" th:if="${relProduct.id != product.id}">
-                    <div class="card-img">
-                        <a th:href="@{'/product/' + ${relProduct.id}}">
-                            <img th:src="@{${relProduct.image != null ? '/product/image/' + relProduct.id : relProduct.imageUrl}}"
-                                th:alt="${relProduct.name}">
-                        </a>
+    <section layout:fragment="content">
+        <div class="container my-5">
+            <div class="row">
+                <!-- Product Image -->
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-lg">
+                        <img th:src="${product.imageUrl}" class="card-img-top" th:alt="${product.name}"
+                            style="height: 500px; object-fit: cover; border-radius: 12px;">
                     </div>
-                    <div class="card-content">
-                        <h3 th:text="${relProduct.name}">Product Name</h3>
-                        <p th:text="${relProduct.description}">Description</p>
-                        <div class="price">
-                            <span class="current-price" th:text="'₹' + ${relProduct.price}">₹500</span>
+                </div>
+
+                <!-- Product Details -->
+                <div class="col-md-6">
+                    <div class="p-4">
+                        <h1 class="display-5 fw-bold mb-3" th:text="${product.name}">Product Name</h1>
+
+                        <div class="mb-3">
+                            <span class="badge bg-secondary fs-6" th:text="${product.category}">Category</span>
                         </div>
-                        <div class="card-actions">
-                            <a th:href="@{'/product/' + ${relProduct.id}}"><button class="add-to-cart">
-                                    View</button></a>
+
+                        <h2 class="text-primary mb-4">
+                            ₹<span th:text="${product.price}">999</span>
+                        </h2>
+
+                        <div class="mb-4">
+                            <h5 class="fw-bold">Description</h5>
+                            <p class="text-muted" th:text="${product.description}">
+                                Premium quality product with excellent features and comfortable fit.
+                            </p>
+                        </div>
+
+                        <div class="d-grid gap-3">
+                            <a th:href="@{/cart/add/{id}(id=${product.id})}" class="btn btn-primary btn-lg"
+                                sec:authorize="isAuthenticated()">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </a>
+
+                            <a th:href="@{/wishlist/add/{id}(id=${product.id})}" class="btn btn-outline-danger btn-lg"
+                                sec:authorize="isAuthenticated()">
+                                <i class="fas fa-heart"></i> Add to Wishlist
+                            </a>
+
+                            <a href="/login" class="btn btn-primary btn-lg" sec:authorize="!isAuthenticated()">
+                                <i class="fas fa-sign-in-alt"></i> Login to Purchase
+                            </a>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <h6 class="fw-bold mb-2"><i class="fas fa-truck"></i> Delivery Information</h6>
+                            <p class="mb-1 small"><i class="fas fa-check text-success"></i> Free delivery on orders
+                                above ₹500</p>
+                            <p class="mb-1 small"><i class="fas fa-check text-success"></i> Cash on Delivery available
+                            </p>
+                            <p class="mb-0 small"><i class="fas fa-check text-success"></i> Easy 7-day return policy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-5" th:if="${relatedProducts != null and !relatedProducts.empty}">
+                <h3 class="mb-4">Related Products</h3>
+                <div class="row g-4">
+                    <div class="col-md-3" th:each="relProduct : ${relatedProducts}"
+                        th:if="${relProduct.id != product.id}">
+                        <div class="card h-100 shadow-sm">
+                            <img th:src="${relProduct.imageUrl}" class="card-img-top" th:alt="${relProduct.name}"
+                                style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${relProduct.name}">Product Name</h5>
+                                <p class="card-text text-muted small" th:text="${relProduct.category}">Category</p>
+                                <h4 class="text-primary">₹<span th:text="${relProduct.price}">999</span></h4>
+                                <div class="d-grid">
+                                    <a th:href="@{/product/{id}(id=${relProduct.id})}"
+                                        class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-eye"></i> View Details
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </section>
 </body>
 
 </html>

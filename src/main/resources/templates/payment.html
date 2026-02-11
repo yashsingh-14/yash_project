@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base}">
+
+<head>
+    <title>Payment</title>
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <div class="container my-5">
+            <h2 class="mb-4"><i class="fas fa-credit-card"></i> Select Payment Method</h2>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0"><i class="fas fa-wallet"></i> Choose Payment Option</h5>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/payment/process}" method="post">
+                                <input type="hidden" name="addressId" th:value="${addressId}">
+
+                                <!-- Cash on Delivery -->
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cod"
+                                        value="COD" checked>
+                                    <label class="form-check-label w-100" for="cod">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-money-bill-wave fa-2x text-success me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">Cash on Delivery (COD)</h6>
+                                                <small class="text-muted">Pay when you receive the product</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- UPI Payment -->
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="upi"
+                                        value="UPI">
+                                    <label class="form-check-label w-100" for="upi">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fab fa-google-pay fa-2x text-primary me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">UPI Payment</h6>
+                                                <small class="text-muted">Google Pay, PhonePe, Paytm, etc.</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Credit/Debit Card -->
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="card"
+                                        value="CARD">
+                                    <label class="form-check-label w-100" for="card">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-credit-card fa-2x text-info me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">Credit/Debit Card</h6>
+                                                <small class="text-muted">Visa, Mastercard, RuPay</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Net Banking -->
+                                <div class="form-check mb-4 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="netbanking"
+                                        value="NETBANKING">
+                                    <label class="form-check-label w-100" for="netbanking">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-university fa-2x text-warning me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">Net Banking</h6>
+                                                <small class="text-muted">All major banks supported</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-check-circle"></i> Confirm & Place Order
+                                    </button>
+                                    <a href="/checkout" class="btn btn-outline-secondary">
+                                        <i class="fas fa-arrow-left"></i> Back to Checkout
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Order Summary</h5>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Items:</span>
+                                <span th:text="${itemCount}">0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span>₹<span th:text="${totalPrice}">0</span></span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <span class="text-success">FREE</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <strong>Total:</strong>
+                                <strong class="text-primary">₹<span th:text="${totalPrice}">0</span></strong>
+                            </div>
+
+                            <div class="alert alert-info small">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Note:</strong> For COD, you can pay in cash when the product is delivered.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

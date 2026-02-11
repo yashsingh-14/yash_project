@@ -2,66 +2,93 @@ package com.yash.store.service;
 
 import com.yash.store.model.CartItem;
 import com.yash.store.model.Product;
+import com.yash.store.model.User;
+import com.yash.store.repository.CartRepository;
+import com.yash.store.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Service
 public class CartService {
-    private List<CartItem> cartItems = new ArrayList<>();
+
+    @Autowired
+    private CartRepository cartRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    private User getCurrentUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName();
+        return userRepository.findByEmail(email).orElseThrow();
+    }
 
     public void addToCart(Product product) {
-        // Check if product already exists
-        for (CartItem item : cartItems) {
-            if (item.getProduct().getId().equals(product.getId())) {
-                item.setQuantity(item.getQuantity() + 1);
-                return;
-            }
-        }
-        cartItems.add(new CartItem(product, 1));
-    }
+        User user = getCurrentUser();
 
-    public void increaseQuantity(Long productId) {
-        for (CartItem item : cartItems) {
-            if (item.getProduct().getId().equals(productId)) {
-                item.setQuantity(item.getQuantity() + 1);
-                return;
-            }
-        }
-    }
+        CartItem cartItem = cartRepository.findByUserAndProduct(user, product)
+                .orElse(new CartItem());
 
-    public void decreaseQuantity(Long productId) {
-        CartItem itemToRemove = null;
-        for (CartItem item : cartItems) {
-            if (item.getProduct().getId().equals(productId)) {
-                if (item.getQuantity() > 1) {
-                    item.setQuantity(item.getQuantity() - 1);
-                } else {
-                    itemToRemove = item;
-                }
-                break;
-            }
+        if (cartItem.getId() == null) {
+            cartItem.setUser(user);
+            cartItem.setProduct(product);
+            cartItem.setQuantity(1);
+        } else {
+            cartItem.setQuantity(cartItem.getQuantity() + 1);
         }
-        if (itemToRemove != null) {
-            cartItems.remove(itemToRemove);
-        }
-    }
 
-    public void removeFromCart(Long productId) {
-        cartItems.removeIf(item -> item.getProduct().getId().equals(productId));
+        cartRepository.save(cartItem);
     }
 
     public List<CartItem> getCartItems() {
-        return cartItems;
+        User user = getCurrentUser();
+        return cartRepository.findByUser(user);
     }
 
     public double getTotalPrice() {
-        double total = 0;
-        for (CartItem item : cartItems) {
-            if (item.getProduct().getPrice() != null) {
-                total += item.getProduct().getPrice() * item.getQuantity();
-            }
-        }
-        return total;
+        return getCartItems().stream()
+                .mapToDouble(item -> item.getProduct().getPrice() * item.getQuantity())
+                .sum();
+    }
+
+    public void removeFromCart(Long productId) {
+        User user = getCurrentUser();
+        List<CartItem> cartItems = cartRepository.findByUser(user);
+        cartItems.stream()
+                .filter(item -> item.getProduct().getId().equals(productId))
+                .findFirst()
+                .ifPresent(cartRepository::delete);
+    }
+
+    public void increaseQuantity(Long productId) {
+        User user = getCurrentUser();
+        List<CartItem> cartItems = cartRepository.findByUser(user);
+        cartItems.stream()
+                .filter(item -> item.getProduct().getId().equals(productId))
+                .findFirst()
+                .ifPresent(item -> {
+                    item.setQuantity(item.getQuantity() + 1);
+                    cartRepository.save(item);
+                });
+    }
+
+    public void decreaseQuantity(Long productId) {
+        User user = getCurrentUser();
+        List<CartItem> cartItems = cartRepository.findByUser(user);
+        cartItems.stream()
+                .filter(item -> item.getProduct().getId().equals(productId))
+                .findFirst()
+                .ifPresent(item -> {
+                    if (item.getQuantity() > 1) {
+                        item.setQuantity(item.getQuantity() - 1);
+                        cartRepository.save(item);
+                    } else {
+                        cartRepository.delete(item);
+                    }
+                });
     }
 }
