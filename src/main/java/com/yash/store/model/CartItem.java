@@ -1,14 +1,8 @@
 package com.yash.store.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "cart")
 public class CartItem {
 
@@ -16,16 +10,66 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne // Each cart item belongs to one user, but a user can have many cart items.
-    @JoinColumn(name = "user_id") // Creates a column user_id in the cart table that stores the foreign key to
-                                  // User.id
-    private User user; // A Java reference to the User entity.
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @ManyToOne // Each cart item references one product, but a product can appear in many
-               // carts.
-    @JoinColumn(name = "product_id") // Creates a column product_id in the cart table that stores the foreign key to
-                                     // Product.id
-    private Product product; // Java reference to the Product entity.
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     private Integer quantity = 1;
+
+    public CartItem() {
+    }
+
+    public CartItem(Long id, User user, Product product, Integer quantity) {
+        this.id = id;
+        this.user = user;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public CartItem(User user, Product product, Integer quantity) {
+        this.user = user;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem [id=" + id + ", product=" + product + ", quantity=" + quantity + "]";
+    }
 }

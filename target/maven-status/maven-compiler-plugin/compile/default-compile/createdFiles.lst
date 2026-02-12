@@ -23,7 +23,6 @@ com\yash\store\controller\PaymentController.class
 com\yash\store\repository\UserRepository.class
 com\yash\store\controller\OrderController.class
 com\yash\store\controller\CartController.class
-com\yash\store\model\Product$ProductBuilder.class
 com\yash\store\config\DataSeeder.class
 com\yash\store\controller\CheckoutController.class
 com\yash\store\repository\ProductRepository.class
